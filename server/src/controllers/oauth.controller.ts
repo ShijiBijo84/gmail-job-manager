@@ -1,4 +1,4 @@
-import { getGoogleAuthUrl, getGoogleToken } from "../services/oauth.service.ts";
+import { getGoogleAuthUrl, getGoogleToken } from "../services/oauth.service.js";
 import type { Request, Response } from "express";
 
 export function googleAuth(req: Request, res: Response) {
