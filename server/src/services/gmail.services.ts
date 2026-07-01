@@ -8,7 +8,7 @@ const gmail = google.gmail({
 })
 
 export async function listRecentEmails(): Promise<GmailMessageDetails[]> {
-    const res = await gmail.users.messages.list({ userId: "me", maxResults: 10 })
+    const res = await gmail.users.messages.list({ userId: "me", maxResults: 1 })
     const messages = res.data.messages ?? []
 
     const detailedMessages = await Promise.all(
