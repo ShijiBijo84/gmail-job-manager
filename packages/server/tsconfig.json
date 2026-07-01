@@ -1,0 +1,23 @@
+{
+  "extends": "../../tsconfig.base.json",
+  "compilerOptions": {
+    "target": "es2020",
+    "module": "CommonJS",
+    "lib": [
+      "es2020"
+    ],
+    "types": [
+      "node"
+    ],
+    "rootDir": "./src",
+    "outDir": "./dist",
+    "sourceMap": true,
+    "declaration": true,
+    "declarationMap": true,
+    "emitDeclarationOnly": true,
+    "allowImportingTsExtensions": true,
+  },
+  "include": [
+    "src"
+  ]
+}
