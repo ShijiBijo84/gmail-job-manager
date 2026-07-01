@@ -2,22 +2,28 @@
   "extends": "../../tsconfig.base.json",
   "compilerOptions": {
     "target": "es2020",
-    "module": "CommonJS",
+    "module": "nodenext",
+    "moduleResolution": "nodenext",
     "lib": [
       "es2020"
     ],
     "types": [
       "node"
     ],
-    "rootDir": "./src",
+    "rootDir": "src",
     "outDir": "./dist",
     "sourceMap": true,
     "declaration": true,
     "declarationMap": true,
-    "emitDeclarationOnly": true,
-    "allowImportingTsExtensions": true,
+    "composite": true,
+    "allowImportingTsExtensions": false,
   },
   "include": [
     "src"
+  ],
+  "references": [
+    {
+      "path": "../shared"
+    }
   ]
 }

@@ -1,6 +1,6 @@
 import { google } from "googleapis";
-import { oauth2Client } from "./oauth.service.ts";
-import type { GmailMessageDetails } from "../types/gmail.types.ts";
+import { oauth2Client } from "./oauth.service.js";
+import type { GmailMessageDetails } from "@gmail-job-manager/shared";
 
 const gmail = google.gmail({
     version: 'v1',

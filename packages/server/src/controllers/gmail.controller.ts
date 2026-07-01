@@ -1,6 +1,6 @@
 import type { Request, Response } from "express";
-import { listRecentEmails } from "../services/gmail.services.ts";
-import { classifyEmail } from "../services/ai.service.ts";
+import { listRecentEmails } from "../services/gmail.services.js";
+import { classifyEmail } from "../services/ai.service.js";
 import type { ClassifyEmailInput } from "../types/ai.types.ts";
 
 

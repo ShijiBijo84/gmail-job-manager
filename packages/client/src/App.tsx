@@ -1,7 +1,7 @@
 
 import Inbox from './pages/Inbox'
 
-function App() {
+const App = () => {
 
 
   return (

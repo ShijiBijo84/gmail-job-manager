@@ -1,6 +1,6 @@
-import { buildPrompt } from "../prompts/ai.prompt.ts";
+import { buildPrompt } from "../prompts/ai.prompt.js";
 import type { ClassifyEmailInput } from "../types/ai.types.ts";
-import type { EmailClassification } from "../types/email-classification.types.ts";
+import type { EmailClassification } from "@gmail-job-manager/shared";
 
 export async function classifyEmail(input: ClassifyEmailInput):
     Promise<EmailClassification> {
@@ -17,7 +17,7 @@ export async function classifyEmail(input: ClassifyEmailInput):
             stream: false
         })
     })
-    const data = await res.json()
+    const data = await res.json() as { response: string };
     try {
         const parsed = JSON.parse(data.response)
 

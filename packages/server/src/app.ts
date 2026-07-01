@@ -1,7 +1,7 @@
 import express from "express";
 import cors from "cors";
-import authRoutes from './routes/auth.route.ts'
-import emailRoutes from './routes/gmail.route.ts'
+import authRoutes from './routes/auth.route.js'
+import emailRoutes from './routes/gmail.route.js'
 
 const app = express()
 app.use(cors())
