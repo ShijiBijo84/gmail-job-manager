@@ -1,5 +1,5 @@
-import { getRecentEmails } from "../controllers/gmail.controller.ts";
-import { router } from "./router.ts";
+import { getRecentEmails } from "../controllers/gmail.controller.js";
+import { router } from "./router.js";
 
 router.get('/enriched', getRecentEmails)
 
