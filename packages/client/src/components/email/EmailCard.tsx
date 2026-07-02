@@ -1,15 +1,14 @@
 import { Card } from "#components/ui/card";
 import { Badge } from "#components/ui/badge";
 import type { EnrichedEmail } from "@gmail-job-manager/shared";
-import { getStatusStyle } from "src/utils/getStatusStyle.ts";
-import { getStatusBorder } from "src/utils/getStatusBorder.ts";
+import { STATUS_CONFIG } from "src/config/status.config.ts";
 
 const EmailCard = ({ item }: { item: EnrichedEmail }) => {
     const { email, classification } = item;
-    const statusStyle = getStatusStyle(classification.status);
+    const config = STATUS_CONFIG[classification.status as keyof typeof STATUS_CONFIG];
 
     return (
-        <Card className={`p-5 border-l-4 ${getStatusBorder(classification.status)}`}>
+        <Card className={`p-5 border-l-4 ${config.border} bg-background`}>
             <div className="flex items-start justify-between gap-4">
                 <div className="min-w-0 flex-1">
                     <h3 className="truncate text-base font-semibold text-gray-900">
@@ -22,8 +21,8 @@ const EmailCard = ({ item }: { item: EnrichedEmail }) => {
                 </div>
 
 
-                <Badge className={statusStyle}>
-                    {classification.status}
+                <Badge className={config.badge}>
+                    {config.label}
                 </Badge>
             </div>
 
@@ -37,7 +36,7 @@ const EmailCard = ({ item }: { item: EnrichedEmail }) => {
                 <div className="flex items-center gap-2">
                     <span>AI Score</span>
 
-                    <Badge className={statusStyle}>
+                    <Badge className={config.badge}>
                         {Math.round(classification.confidence * 100)}%
                     </Badge>
                 </div>

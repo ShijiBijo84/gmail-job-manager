@@ -13,8 +13,11 @@ export default defineConfig({
     alias: {
       "@gmail-job-manager/shared": path.resolve(
         __dirname,
-        "../shared/src/index.ts"
-      )
+        "../shared/src"
+      ),
+      "#components": path.resolve(__dirname, "src/components"),
+      "#config": path.resolve(__dirname, "src/config"),
+      "#pages": path.resolve(__dirname, "src/pages")
     }
   }
 })

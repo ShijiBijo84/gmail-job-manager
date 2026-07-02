@@ -1,12 +1,8 @@
-
-import Inbox from './pages/Inbox'
+import InboxPage from "#pages/InboxPage";
 
 const App = () => {
-
-
   return (
-
-    <Inbox />
+    <InboxPage />
   )
 }
 
