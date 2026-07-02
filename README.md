@@ -1,223 +1,46 @@
+
 # Gmail Job Manager
 
-An AI-powered application that helps track job applications directly from Gmail. The project fetches emails using the Gmail API, classifies them with a local LLM running on Ollama, and presents a clean job-focused inbox.
+An AI-powered system that turns Gmail into a structured job application tracker using local LLM inference (Ollama).
 
-## Features
-
-* Gmail OAuth 2.0 authentication
-* Fetch recent Gmail messages
-* AI-powered job email classification
-* Confidence scoring for each email
-* REST API built with Express and TypeScript
-* React + Vite frontend
-* Local AI inference using Ollama
+It fetches emails, classifies job-related messages, and presents them in a clean, filterable inbox UI.
 
 ---
 
-## Tech Stack
+# Why I Built This
 
-### Backend
+Job searching often becomes overwhelming when important emails are buried inside a cluttered inbox. I wanted to solve a simple but real problem: **turn unstructured Gmail data into a clear, actionable job tracking system.**
 
-* Node.js
-* Express
-* TypeScript
-* Google Gmail API
-* OAuth 2.0
-* Ollama
+Instead of building another job board or tracker from scratch, I focused on the data already being generated — email communication — and asked:
 
-### Frontend
+> _Can an inbox become a structured job application dashboard using AI?_
 
-* React
-* Vite
-* TypeScript
-* Tailwind CSS
-* Axios
+# System Overview
 
----
+Gmail Job Manager is a full-stack TypeScript monorepo that processes Gmail data and enriches it using AI.
 
-## Project Structure
+The system is divided into three layers:
+
+* **Ingestion Layer** → Gmail API (email fetching via OAuth)
+* **Intelligence Layer** → Express backend + Ollama LLM
+* **Presentation Layer** → React + Tailwind UI
 
 ```text
-gmail-job-manager/
-├── server/
-│   ├── src/
-│   │   ├── controllers/
-│   │   ├── routes/
-│   │   ├── services/
-│   │   ├── types/
-│   │   ├── app.ts
-│   │   └── index.ts
-│   ├── package.json
-│   └── tsconfig.json
-│
-├── frontend/
-│   ├── src/
-│   ├── package.json
-│   └── vite.config.ts
-│
-└── README.md
+Gmail API → Backend (Express + TS) → Ollama AI → React UI
 ```
-
 ---
 
-## Architecture
+##  Documentation
 
-```text
-Gmail
-   │
-   ▼
-Gmail API
-   │
-   ▼
-Express Backend
-   │
-   ├── OAuth Service
-   ├── Gmail Service
-   ├── AI Service (Ollama)
-   └── REST API
-   │
-   ▼
-React Frontend
-```
+Full project documentation is available in `/docs`:
+
+- [Architecture](docs/architecture.md)
+- [Design Decisions](docs/design-decisions.md)
+- [Screenshots](docs/screenshots.md)
+
+#  Disclaimer
+
+This project is built for educational and portfolio purposes.
+It uses Gmail API with user consent and performs local AI inference using Ollama.
 
 ---
-
-## Backend Flow
-
-```text
-GET /emails/enriched
-        │
-        ▼
-Fetch Gmail Messages
-        │
-        ▼
-Normalize Email Data
-        │
-        ▼
-Send to Ollama
-        │
-        ▼
-AI Classification
-        │
-        ▼
-Return Enriched Emails
-```
-
----
-
-## Environment Variables
-
-Create a `.env` file inside the `server` directory.
-
-```env
-PORT=4000
-
-GOOGLE_CLIENT_ID=
-GOOGLE_CLIENT_SECRET=
-GOOGLE_REDIRECT_URI=http://localhost:4000/auth/google/callback
-GOOGLE_REFRESH_TOKEN=
-```
-
----
-
-## Running the Backend
-
-```bash
-cd server
-npm install
-npm run dev
-```
-
-Server:
-
-```
-http://localhost:4000
-```
-
-Health check:
-
-```
-GET /api/health
-```
-
----
-
-## Running the Frontend
-
-```bash
-cd frontend
-npm install
-npm run dev
-```
-
-Frontend:
-
-```
-http://localhost:5173
-```
-
----
-
-## Current API
-
-### Health
-
-```
-GET /api/health
-```
-
-### Google Login
-
-```
-GET /auth/google
-```
-
-### OAuth Callback
-
-```
-GET /auth/google/callback
-```
-
-### AI Enriched Emails
-
-```
-GET /emails/enriched
-```
-
----
-
-## AI Classification
-
-The backend sends email metadata to a local Ollama model and returns structured output.
-
-Example:
-
-```json
-{
-  "isJobRelated": true,
-  "confidence": 0.96
-}
-```
-
----
-
-## Roadmap
-
-* [x] Express backend
-* [x] Gmail OAuth
-* [x] Gmail API integration
-* [x] AI email classification
-* [x] React frontend
-* [ ] Company extraction
-* [ ] Role extraction
-* [ ] Application status detection
-* [ ] Search and filtering
-* [ ] Persistent storage
-* [ ] Dashboard analytics
-* [ ] Deployment
-
----
-
-## Disclaimer
-
-This project is intended for educational and personal productivity purposes. It uses the Gmail API with user authorization and performs AI inference locally through Ollama.
