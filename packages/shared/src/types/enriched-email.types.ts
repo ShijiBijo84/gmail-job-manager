@@ -1,5 +1,5 @@
-import type { EmailClassification } from "../../../shared/src/types/email-classification.types";
-import type { JobEmail } from "../../../shared/src/types/job-email.types";
+import type { EmailClassification } from "./email-classification.types";
+import type { JobEmail } from "./job-email.types";
 
 export type EnrichedEmail = {
     email: JobEmail;

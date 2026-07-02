@@ -1,6 +1,6 @@
-export interface Email {
-    id: string;
-    email: string;
-    createdAt: string;
-    updatedAt: string;
-}
+import type { EnrichedEmail } from "@gmail-job-manager/shared";
+
+export type EnrichedEmailResponse = {
+    success: boolean;
+    data: EnrichedEmail[];
+};

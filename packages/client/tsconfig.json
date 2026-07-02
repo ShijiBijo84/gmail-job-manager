@@ -2,16 +2,19 @@
   "extends": "../../tsconfig.base.json",
   "compilerOptions": {
     "target": "es2020",
-    "module": "ESNext",
-    "moduleResolution": "node",
+    "module": "nodenext",
+    "moduleResolution": "nodenext",
     "lib": [
       "DOM",
       "es2020"
     ],
-    "baseUrl": "./",
+    "baseUrl": ".",
     "paths": {
       "#components/*": [
         "src/components/*"
+      ],
+      "@gmail-job-manager/shared": [
+        "../shared/src/index.ts"
       ]
     },
     "jsx": "react-jsx",
