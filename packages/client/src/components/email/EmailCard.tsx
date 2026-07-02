@@ -1,7 +1,7 @@
 import { Card } from "#components/ui/card";
 import { Badge } from "#components/ui/badge";
 import type { EnrichedEmail } from "@gmail-job-manager/shared";
-import { STATUS_CONFIG } from "src/config/status.config.ts";
+import { STATUS_CONFIG } from "#constants/status.constants";
 
 const EmailCard = ({ item }: { item: EnrichedEmail }) => {
     const { email, classification } = item;
