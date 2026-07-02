@@ -1,4 +1,4 @@
-export function confidenceVariant(confidence: number) {
+export function getConfidenceStyle(confidence: number) {
     if (confidence >= 0.8) {
         return "bg-green-600 text-green-100 border-green-500";      // stronger green background and lighter text
     } else if (confidence >= 0.5) {
