@@ -23,13 +23,15 @@ export async function classifyEmail(input: ClassifyEmailInput):
 
         return {
             isJobRelated: parsed.isJobRelated,
-            confidence: parsed.confidence
+            confidence: parsed.confidence,
+            status: parsed.status
         }
 
     } catch (err) {
         return {
             isJobRelated: false,
-            confidence: 0
+            confidence: 0,
+            status: "unknown"
         }
     }
 

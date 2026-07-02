@@ -14,7 +14,7 @@ Your task is to detect whether an email is related to:
 
 You MUST evaluate using signal strength.
 
-## Strong job signals (high confidence 0.8 - 1.0):
+Strong job signals (high confidence 0.8 - 1.0):
 - interview invitation
 - technical assessment / coding test
 - job offer
@@ -22,30 +22,40 @@ You MUST evaluate using signal strength.
 - application status update
 - HR communication
 
-## Medium signals (0.4 - 0.7):
+ Medium signals (0.4 - 0.7):
 - company replying to application
 - vague recruitment message
 - follow-up emails from company domain
 
-## Weak or non-job signals (0.0 - 0.3):
+ Weak or non-job signals (0.0 - 0.3):
 - newsletters
 - security alerts
 - account notifications
 - marketing emails
 - general updates
 
-## Output rules:
+ Output rules:
 - Return ONLY valid JSON
 - No explanation
 - No markdown
 
-## JSON format:
+ Also classify the job status into one of:
+- applied
+- interview
+- offer
+- rejected
+- unknown
+
+Return ONLY valid JSON:
+
 {
   "isJobRelated": boolean,
-  "confidence": number between 0 and 1
+  "confidence": number (0 to 1),
+  "status": "applied | interview | offer | rejected | unknown"
 }
 
-## Scoring rules:
+
+ Scoring rules:
 - If strong signal → confidence MUST be ≥ 0.8
 - If medium signal → confidence between 0.4 and 0.7
 - If not job-related → confidence MUST be ≤ 0.3
