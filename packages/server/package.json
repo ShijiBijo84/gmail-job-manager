@@ -13,12 +13,13 @@
   "license": "ISC",
   "type": "module",
   "dependencies": {
+    "@gmail-job-manager/shared": "*",
     "cors": "^2.8.6",
     "dotenv": "^17.4.2",
     "express": "^5.2.1",
     "googleapis": "^173.0.0",
-    "tsconfig-paths": "^4.2.0",
-    "@gmail-job-manager/shared": "*"
+    "he": "^1.2.0",
+    "tsconfig-paths": "^4.2.0"
   },
   "devDependencies": {
     "@types/cors": "^2.8.19",

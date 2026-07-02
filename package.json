@@ -10,6 +10,7 @@
     "start:client": "npm run dev --workspace=client"
   },
   "devDependencies": {
+    "@types/he": "^1.2.3",
     "@types/node": "^26.1.0",
     "concurrently": "^10.0.3"
   },
