@@ -10,6 +10,17 @@
 
 ---
 
+##  Why I Built This
+
+Job application emails quickly become scattered across a busy inbox, making it difficult to track progress.
+
+This project explores how AI can transform unstructured Gmail data into structured application insights by combining Gmail integration, local LLM inference, and a clean frontend experience.
+
+It also served as an opportunity to practice building a full-stack TypeScript application with shared domain models, service-oriented backend architecture, and AI-powered data enrichment.
+
+---
+
+
 ## Features
 
 -  Gmail OAuth 2.0 authentication
@@ -139,16 +150,6 @@ cd packages/client
 npm install
 npm run dev
 ```
-
----
-
-##  Why I Built This
-
-Job application emails quickly become scattered across a busy inbox, making it difficult to track progress.
-
-This project explores how AI can transform unstructured Gmail data into structured application insights by combining Gmail integration, local LLM inference, and a clean frontend experience.
-
-It also served as an opportunity to practice building a full-stack TypeScript application with shared domain models, service-oriented backend architecture, and AI-powered data enrichment.
 
 ---
 
