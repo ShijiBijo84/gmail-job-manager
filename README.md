@@ -1,46 +1,168 @@
 
 # Gmail Job Manager
 
-An AI-powered system that turns Gmail into a structured job application tracker using local LLM inference (Ollama).
+> An AI-powered Gmail application that transforms raw emails into a structured job application tracker using local LLM inference with Ollama.
 
-It fetches emails, classifies job-related messages, and presents them in a clean, filterable inbox UI.
+![React](https://img.shields.io/badge/React-19-blue)
+![TypeScript](https://img.shields.io/badge/TypeScript-5-blue)
+![Express](https://img.shields.io/badge/Express-5-black)
+![Ollama](https://img.shields.io/badge/Ollama-Local%20LLM-green)
 
 ---
 
-# Why I Built This
+## Features
 
-Job searching often becomes overwhelming when important emails are buried inside a cluttered inbox. I wanted to solve a simple but real problem: **turn unstructured Gmail data into a clear, actionable job tracking system.**
+-  Gmail OAuth 2.0 authentication
+-  Fetch and normalize Gmail messages
+-  AI-powered job email classification
+-  Confidence scoring
+-  Application status detection
+-  Clean, filterable inbox UI
+-  Shared TypeScript domain models
 
-Instead of building another job board or tracker from scratch, I focused on the data already being generated — email communication — and asked:
+---
 
-> _Can an inbox become a structured job application dashboard using AI?_
+##  Screenshots
 
-# System Overview
+### Inbox Dashboard
 
-Gmail Job Manager is a full-stack TypeScript monorepo that processes Gmail data and enriches it using AI.
+Displays AI-enriched job emails in a clean inbox interface.
 
-The system is divided into three layers:
+![Inbox Dashboard](docs/screenshots/inbox.png)
+---
 
-* **Ingestion Layer** → Gmail API (email fetching via OAuth)
-* **Intelligence Layer** → Express backend + Ollama LLM
-* **Presentation Layer** → React + Tailwind UI
+### Email Classification
+
+Each email is enriched with:
+
+- Application status
+- AI confidence score
+- Sender
+- Preview snippet
+
+![Email Card](docs/screenshots/filtered.png)
+
+---
+
+## System Overview
 
 ```text
-Gmail API → Backend (Express + TS) → Ollama AI → React UI
+                Gmail API
+                    │
+                    ▼
+        Express Backend (TypeScript)
+                    │
+     Gmail Service • AI Service
+                    │
+          Ollama (Local LLM)
+                    │
+                    ▼
+        Enriched Email Response
+                    │
+                    ▼
+      React + Tailwind Frontend
 ```
----
-
-##  Documentation
-
-Full project documentation is available in `/docs`:
-
-- [Architecture](docs/architecture.md)
-- [Design Decisions](docs/design-decisions.md)
-- [Screenshots](docs/screenshots.md)
-
-#  Disclaimer
-
-This project is built for educational and portfolio purposes.
-It uses Gmail API with user consent and performs local AI inference using Ollama.
 
 ---
+
+##  Processing Pipeline
+
+```text
+Fetch Gmail Email
+        │
+        ▼
+Normalize Email Data
+        │
+        ▼
+AI Classification
+        │
+        ▼
+Generate Structured Status
+        │
+        ▼
+Render Inbox UI
+```
+
+---
+
+##  Tech Stack
+
+### Backend
+
+- Node.js
+- Express
+- TypeScript
+- Gmail API
+- OAuth 2.0
+- Ollama
+
+### Frontend
+
+- React
+- Vite
+- Tailwind CSS
+- shadcn/ui
+- Axios
+
+### Monorepo
+
+- npm Workspaces
+- Shared TypeScript package
+
+---
+
+##  Project Structure
+
+```text
+packages/
+├── client/
+├── server/
+└── shared/
+```
+
+---
+
+##  Getting Started
+
+### Backend
+
+```bash
+cd packages/server
+npm install
+npm run dev
+```
+
+### Frontend
+
+```bash
+cd packages/client
+npm install
+npm run dev
+```
+
+---
+
+##  Why I Built This
+
+Job application emails quickly become scattered across a busy inbox, making it difficult to track progress.
+
+This project explores how AI can transform unstructured Gmail data into structured application insights by combining Gmail integration, local LLM inference, and a clean frontend experience.
+
+It also served as an opportunity to practice building a full-stack TypeScript application with shared domain models, service-oriented backend architecture, and AI-powered data enrichment.
+
+---
+
+##  Roadmap
+
+- ✅ Gmail OAuth
+- ✅ AI classification
+- ✅ Status detection
+- ✅ Sidebar filtering
+- ⏳ Company extraction
+- ⏳ Role extraction
+- ⏳ Search
+- ⏳ PostgreSQL persistence
+- ⏳ Analytics dashboard
+
+---
+
