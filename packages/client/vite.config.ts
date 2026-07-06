@@ -15,9 +15,9 @@ export default defineConfig({
         __dirname,
         "../shared/src"
       ),
-      "#components": path.resolve(__dirname, "src/components"),
-      "#constants": path.resolve(__dirname, "src/constants"),
-      "#pages": path.resolve(__dirname, "src/pages")
+      "#components": path.resolve(__dirname, "./src/components"),
+      "#constants": path.resolve(__dirname, "./src/constants"),
+      "#pages": path.resolve(__dirname, "./src/pages")
     }
   }
 })

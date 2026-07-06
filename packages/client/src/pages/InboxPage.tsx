@@ -2,10 +2,12 @@ import InboxLayout from "#components/layout/InboxLayout";
 import type { ApplicationStatus, EnrichedEmail } from "@gmail-job-manager/shared";
 import axios from "axios";
 import { useEffect, useMemo, useState } from "react";
-import type { EnrichedEmailResponse, StatusFilter } from "src/types/email.types.ts";
+import type { EnrichedEmailResponse, StatusFilter } from "../types/email.types";
 import { Spinner } from "#components/ui/spinner";
 import SideBar from "#components/layout/SideBar";
 import Inbox from "#components/layout/Inbox";
+
+const apiUrl = import.meta.env.VITE_BASE_URL;
 
 const InboxPage = () => {
     const [emails, setEmails] = useState<EnrichedEmail[]>([]);
@@ -16,14 +18,14 @@ const InboxPage = () => {
         const fetchEmails = async () => {
             setLoading(true);
             try {
-                const res = await axios.get<EnrichedEmailResponse>("http://localhost:4000/emails/enriched");
+                const res = await axios.get<EnrichedEmailResponse>(`${apiUrl}/emails/enriched`);
                 setEmails(res.data.data);
             } catch (error) {
                 console.error("Error fetching emails:", error);
             } finally {
                 setLoading(false);
             }
-        }
+        };
         fetchEmails();
     }, []);
 

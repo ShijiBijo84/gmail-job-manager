@@ -1,7 +1,8 @@
 import { Badge } from "#components/ui/badge";
 import { FILTERS } from "#constants/filters.constants";
 import { STATUS_CONFIG } from "#constants/status.constants";
-import type { StatusFilter } from "src/types/email.types";
+import type { ApplicationStatus } from "@gmail-job-manager/shared";
+import type { StatusFilter } from "../../types/email.types";
 
 type SideBarProps = {
     counts: Record<string, number>;
@@ -15,7 +16,7 @@ const SideBar = ({ counts, filter, onFilterChange }: SideBarProps) => {
         <nav className="space-y-2">
             {FILTERS.map((status) => {
                 const isActive = filter === status;
-                const label = status === 'all' ? 'All' : STATUS_CONFIG[status].label;
+                const label = status === 'all' ? 'All' : STATUS_CONFIG[status as ApplicationStatus].label;
                 const count = status === 'all' ? counts['all'] : counts[status] || 0;
                 return (
                     <button

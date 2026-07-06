@@ -8,16 +8,15 @@
       "DOM",
       "es2020"
     ],
-    "baseUrl": "./",
     "paths": {
       "#components/*": [
-        "src/components/*"
+        "./src/components/*"
       ],
       "#constants/*": [
-        "src/constants/*"
+        "./src/constants/*"
       ],
       "#pages/*": [
-        "src/pages/*"
+        "./src/pages/*"
       ]
     },
     "jsx": "react-jsx",
