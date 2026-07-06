@@ -6,7 +6,7 @@
 ![React](https://img.shields.io/badge/React-19-blue)
 ![TypeScript](https://img.shields.io/badge/TypeScript-5-blue)
 ![Express](https://img.shields.io/badge/Express-5-black)
-![Ollama](https://img.shields.io/badge/Ollama-Local%20LLM-green)
+![AI](https://img.shields.io/badge/LLM-Ollama%20%7C%20Groq%20%7C)
 
 ---
 
@@ -23,13 +23,14 @@ It also served as an opportunity to practice building a full-stack TypeScript ap
 
 ## Features
 
--  Gmail OAuth 2.0 authentication
--  Fetch and normalize Gmail messages
--  AI-powered job email classification
--  Confidence scoring
--  Application status detection
--  Clean, filterable inbox UI
--  Shared TypeScript domain models
+- Gmail OAuth 2.0 authentication
+- Fetch and normalize Gmail messages
+- AI-powered job email classification
+- Confidence scoring for predictions
+- Application status detection (applied, interview, rejected,  offer, unknown)
+- Filterable inbox UI
+- Shared TypeScript domain models
+- Swappable AI providers (Ollama / Groq )
 
 ---
 
@@ -63,20 +64,24 @@ Each email is enriched with:
                     ▼
         Express Backend (TypeScript)
                     │
-     Gmail Service • AI Service
+     Gmail Service • AI Classification Layer
                     │
-          Ollama (Local LLM)
-                    │
-                    ▼
-        Enriched Email Response
-                    │
-                    ▼
-      React + Tailwind Frontend
+   ┌───────────────────────────────┐
+   │                               │
+   ▼                               ▼
+Ollama (Local LLM)        Groq API (Cloud LLM)
+   │                               │
+   └───────────────┬───────────────┘
+                   ▼
+        Structured Email Intelligence
+                   │
+                   ▼
+        React + Tailwind Frontend
 ```
 
 ---
 
-##  Processing Pipeline
+## AI Email Processing Pipeline
 
 ```text
 Fetch Gmail Email
@@ -85,10 +90,13 @@ Fetch Gmail Email
 Normalize Email Data
         │
         ▼
-AI Classification
+AI Classification (Provider-based)
         │
         ▼
-Generate Structured Status
+Extract Structured Job Status
+        │
+        ▼
+Enrich Email Payload
         │
         ▼
 Render Inbox UI
@@ -105,7 +113,8 @@ Render Inbox UI
 - TypeScript
 - Gmail API
 - OAuth 2.0
-- Ollama
+- Ollama (Local inference)
+- Groq API (Cloud inference)
 
 ### Frontend
 
@@ -115,10 +124,11 @@ Render Inbox UI
 - shadcn/ui
 - Axios
 
-### Monorepo
-
-- npm Workspaces
-- Shared TypeScript package
+### Architecture
+- Clean Architecture (Service + Provider pattern)
+- AI Provider abstraction layer
+- Shared TypeScript domain models
+- Swappable LLM backend (Ollama ↔ Groq)
 
 ---
 
@@ -126,9 +136,9 @@ Render Inbox UI
 
 ```text
 packages/
-├── client/
-├── server/
-└── shared/
+├── client/        # React frontend
+├── server/        # Express backend
+└── shared/        # Shared types & models
 ```
 
 ---
@@ -150,6 +160,16 @@ cd packages/client
 npm install
 npm run dev
 ```
+
+---
+
+##  Why I Built This
+
+Job application emails quickly become scattered across a busy inbox, making it difficult to track progress.
+
+This project explores how AI can transform unstructured Gmail data into structured application insights by combining Gmail integration, local LLM inference, and a clean frontend experience.
+
+It also served as an opportunity to practice building a full-stack TypeScript application with shared domain models, service-oriented backend architecture, and AI-powered data enrichment.
 
 ---
 
