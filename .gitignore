@@ -18,8 +18,10 @@ build/
 
 # Environment variables
 .env
-.env.local
+.en.local
 .env.*.local
+.env.prod
+.env.example
 
 # IDE/editor configs
 .vscode/

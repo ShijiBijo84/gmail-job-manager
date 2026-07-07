@@ -1,7 +1,13 @@
+import { Router } from "express";
 import { getRecentEmails } from "../controllers/gmail.controller.js";
-import { router } from "./router.js";
 
-router.get('/enriched', getRecentEmails)
+const gmailRouter = Router();
 
 
-export default router
+gmailRouter.get("/api/health", (req, res) => {
+    res.json({ success: true, data: "server running" })
+})
+gmailRouter.get('/enriched', getRecentEmails)
+
+
+export default gmailRouter

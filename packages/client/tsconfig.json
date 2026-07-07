@@ -17,6 +17,9 @@
       ],
       "#pages/*": [
         "./src/pages/*"
+      ],
+      "@gmail-job-manager/shared": [
+        "../shared/src"
       ]
     },
     "jsx": "react-jsx",
