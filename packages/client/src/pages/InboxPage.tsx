@@ -7,8 +7,6 @@ import { Spinner } from "#components/ui/spinner";
 import SideBar from "#components/layout/SideBar";
 import Inbox from "#components/layout/Inbox";
 
-const apiUrl = import.meta.env.VITE_BASE_URL;
-
 const InboxPage = () => {
     const [emails, setEmails] = useState<EnrichedEmail[]>([]);
     const [loading, setLoading] = useState<boolean>(false);
@@ -18,7 +16,7 @@ const InboxPage = () => {
         const fetchEmails = async () => {
             setLoading(true);
             try {
-                const res = await axios.get<EnrichedEmailResponse>(`${apiUrl}/emails/enriched`);
+                const res = await axios.get<EnrichedEmailResponse>('/emails/enriched');
                 setEmails(res.data.data);
             } catch (error) {
                 console.error("Error fetching emails:", error);
