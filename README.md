@@ -2,6 +2,7 @@
 # Gmail Job Manager
 
 > An AI-powered Gmail application that transforms raw emails into a structured job application tracker using local LLM inference with Ollama.
+>  **Live Demo:** https://gmail-job-manager-512805795879.europe-west1.run.app/
 
 ![React](https://img.shields.io/badge/React-19-blue)
 ![TypeScript](https://img.shields.io/badge/TypeScript-5-blue)
