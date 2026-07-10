@@ -170,10 +170,10 @@ It also served as an opportunity to practice building a full-stack TypeScript ap
 - ✅ AI classification
 - ✅ Status detection
 - ✅ Sidebar filtering
+- ⏳ PostgreSQL persistence
 - ⏳ Company extraction
 - ⏳ Role extraction
 - ⏳ Search
-- ⏳ PostgreSQL persistence
 - ⏳ Analytics dashboard
 
 ---
