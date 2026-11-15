@@ -1,5 +1,4 @@
-import { google } from "googleapis"
-import type { Credentials } from "google-auth-library";
+import { OAuth2Client, type Credentials } from "google-auth-library";
 import dotenv from "dotenv";
 
 dotenv.config()
@@ -13,7 +12,7 @@ if (!GOOGLE_CLIENT_ID || !GOOGLE_CLIENT_SECRET || !GOOGLE_REDIRECT_URI) {
     throw new Error('Missing google oauth env variable')
 }
 
-export const oauth2Client = new google.auth.OAuth2(
+export const oauth2Client = new OAuth2Client(
     GOOGLE_CLIENT_ID, GOOGLE_CLIENT_SECRET, GOOGLE_REDIRECT_URI
 )
 

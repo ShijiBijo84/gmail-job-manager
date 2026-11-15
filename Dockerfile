@@ -49,8 +49,7 @@ RUN npm ci --omit=dev && npm cache clean --force
 # Copy built artifacts from builder
 COPY --from=builder --chown=appuser:appuser /app/packages/server/dist ./packages/server/dist
 COPY --from=builder --chown=appuser:appuser /app/packages/client/dist ./packages/client/dist
-COPY --from=builder --chown=appuser:appuser /app/packages/shared ./packages/shared
-COPY --from=builder --chown=appuser:appuser /app/node_modules ./node_modules
+COPY --from=builder --chown=appuser:appuser /app/packages/shared/dist ./packages/shared/dist
 
 # Switch to non-root user
 USER appuser

@@ -1,8 +1,8 @@
-import { google } from "googleapis";
+import { gmail as createGmailClient } from "@googleapis/gmail";
 import { oauth2Client } from "./oauth.service.js";
 import type { GmailMessageDetails } from "@gmail-job-manager/shared";
 
-const gmail = google.gmail({
+const gmail = createGmailClient({
     version: 'v1',
     auth: oauth2Client
 })

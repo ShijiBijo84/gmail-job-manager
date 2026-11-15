@@ -11,6 +11,7 @@ export async function getRecentEmails(req: Request, res: Response): Promise<Resp
         )
         return res.json({ success: true, data: enriched })
     } catch (err) {
+        console.error("Failed to process emails:", err instanceof Error ? err.message : err)
         return res.status(500).json({ success: false, error: "Failed to process emails" })
     }
 }
